@@ -104,6 +104,11 @@ public class MaterialEditText extends AppCompatEditText {
   private int bottomSpacing;
 
   /**
+   * the spacing between the main text and the underline.
+   */
+  private int textToUnderlineDistance;
+
+  /**
    * whether the floating label should be shown. default is false.
    */
   private boolean floatingLabelEnabled;
@@ -394,6 +399,7 @@ public class MaterialEditText extends AppCompatEditText {
     if (floatingLabelText == null) {
       floatingLabelText = getHint();
     }
+    textToUnderlineDistance = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_textToUnderlineDistance, getResources().getDimensionPixelSize(R.dimen.text_to_underline_distance));
     floatingLabelPadding = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_floatingLabelPadding, bottomSpacing);
     floatingLabelTextSize = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_floatingLabelTextSize, getResources().getDimensionPixelSize(R.dimen.floating_label_text_size));
     floatingLabelTextColor = typedArray.getColor(R.styleable.MaterialEditText_met_floatingLabelTextColor, -1);
@@ -1301,13 +1307,13 @@ public class MaterialEditText extends AppCompatEditText {
       }
       Bitmap clearButtonBitmap = clearButtonBitmaps[0];
       buttonLeft += (iconOuterWidth - clearButtonBitmap.getWidth()) / 2;
-      int iconTop = lineStartY + bottomSpacing - iconOuterHeight + (iconOuterHeight - clearButtonBitmap.getHeight()) / 2;
+      int iconTop = lineStartY + textToUnderlineDistance - iconOuterHeight + (iconOuterHeight - clearButtonBitmap.getHeight()) / 2;
       canvas.drawBitmap(clearButtonBitmap, buttonLeft, iconTop, paint);
     }
 
     // draw the underline
     if (!hideUnderline) {
-      lineStartY += bottomSpacing;
+      lineStartY += textToUnderlineDistance;
       if (!isInternalValid()) { // not valid
         paint.setColor(errorColor);
         canvas.drawRect(startX, lineStartY, endX, lineStartY + getPixel(2), paint);

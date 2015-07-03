@@ -33,6 +33,8 @@
     <attr name="met_floatingLabelText" format="string" />
     <!-- spacing between the main text and the floating label -->
     <attr name="met_floatingLabelPadding" format="dimension" />
+    <!-- spacing between the main text the underline -->
+    <attr name="met_textToUnderlineDistance" format="dimension" />
     <!-- Hide underline -->
     <attr name="met_hideUnderline" format="boolean" />
     <!-- Underline's color -->
