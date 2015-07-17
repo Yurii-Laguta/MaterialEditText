@@ -1526,4 +1526,9 @@ public class MaterialEditText extends AppCompatEditText {
     if (lengthChecker==null) return text.length();
     return lengthChecker.getLength(text);
   }
+
+  @Override
+  public CharSequence getContentDescription() {
+    return helperText != null ? helperText : "";
+  }
 }
