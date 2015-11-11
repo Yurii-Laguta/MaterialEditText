@@ -341,8 +341,8 @@ public class MaterialEditText extends AppCompatEditText {
     iconOuterWidth = getPixel(48);
     iconOuterHeight = getPixel(32);
 
-    bottomSpacing = getResources().getDimensionPixelSize(R.dimen.inner_components_spacing);
-    bottomEllipsisSize = getResources().getDimensionPixelSize(R.dimen.bottom_ellipsis_height);
+    bottomSpacing = isInEditMode() ? getPixel(8) : getResources().getDimensionPixelSize(R.dimen.inner_components_spacing);
+    bottomEllipsisSize = isInEditMode() ? getPixel(4) : getResources().getDimensionPixelSize(R.dimen.bottom_ellipsis_height);
 
     // default baseColor is black
     int defaultBaseColor = Color.BLACK;
