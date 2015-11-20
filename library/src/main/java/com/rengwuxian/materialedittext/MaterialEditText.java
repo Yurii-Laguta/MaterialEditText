@@ -399,12 +399,12 @@ public class MaterialEditText extends AppCompatEditText {
     if (floatingLabelText == null) {
       floatingLabelText = getHint();
     }
-    textToUnderlineDistance = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_textToUnderlineDistance, getResources().getDimensionPixelSize(R.dimen.text_to_underline_distance));
+    textToUnderlineDistance = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_textToUnderlineDistance, isInEditMode() ? getPixel(8) : getResources().getDimensionPixelSize(R.dimen.text_to_underline_distance));
     floatingLabelPadding = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_floatingLabelPadding, bottomSpacing);
-    floatingLabelTextSize = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_floatingLabelTextSize, getResources().getDimensionPixelSize(R.dimen.floating_label_text_size));
+    floatingLabelTextSize = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_floatingLabelTextSize, isInEditMode() ? getPixel(12) :  getResources().getDimensionPixelSize(R.dimen.floating_label_text_size));
     floatingLabelTextColor = typedArray.getColor(R.styleable.MaterialEditText_met_floatingLabelTextColor, -1);
     floatingLabelAnimating = typedArray.getBoolean(R.styleable.MaterialEditText_met_floatingLabelAnimating, true);
-    bottomTextSize = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_bottomTextSize, getResources().getDimensionPixelSize(R.dimen.bottom_text_size));
+    bottomTextSize = typedArray.getDimensionPixelSize(R.styleable.MaterialEditText_met_bottomTextSize, isInEditMode() ? getPixel(12) : getResources().getDimensionPixelSize(R.dimen.bottom_text_size));
     hideUnderline = typedArray.getBoolean(R.styleable.MaterialEditText_met_hideUnderline, false);
     underlineColor = typedArray.getColor(R.styleable.MaterialEditText_met_underlineColor, -1);
     autoValidate = typedArray.getBoolean(R.styleable.MaterialEditText_met_autoValidate, false);
